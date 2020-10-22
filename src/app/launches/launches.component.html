@@ -1,0 +1,33 @@
+<div class="launches-wrapper">
+    <div class="heading">
+        <h1>SpaceX Launch Programs</h1>
+    </div>
+    <!-- Filters and launches -->
+    <div class="filters-and-launches">
+        <!-- Filters Container -->
+        <div class="filters-wrapper">
+            <filters></filters>
+        </div>
+
+        <!-- Launches / Programs -->
+        <div class="programs-and-develop-by">
+            <!-- Programs -->
+            <div class="programs">
+                <div class="loader-container" *ngIf="showLoader">
+                    <div class="loader-inner">
+                        <div class="loader">Loading...</div>
+                    </div>
+                </div>
+                <div class="no-programs" *ngIf="!showLoader && !programs.length">
+                    <span class="first">No SpaceX Programs</span>
+                    <span class="last">Please try by changing filters if applied.</span>
+                </div>
+                <programs class="program" *ngFor="let program of programs;" [program]="program"></programs>
+            </div>
+        </div>
+    </div>
+    <!-- Developed By -->
+    <div class="developed-by-container">
+        <develop-by></develop-by>
+    </div>
+</div>

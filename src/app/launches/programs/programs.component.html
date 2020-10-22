@@ -1,0 +1,31 @@
+<!-- Main Container -->
+<div class="program-outer-wrapper">
+  <!-- Prog Inner Wrpper -->
+  <div class="program-inner-wrapper">
+    <!-- Image -->
+    <div class="program-avatar">
+      <div *ngIf="!program?.links?.mission_patch" class="no-image">SpaceX Program</div>
+      <img *ngIf="program?.links?.mission_patch" [src]="program?.links?.mission_patch" alt="SpaceX Program Image" />
+    </div>
+    <div class="name">{{program?.mission_name}}&nbsp;#{{program?.flight_number}}</div>
+    <!-- Mission Ids -->
+    <div class="mission-ids" *ngIf="program?.mission_id?.length">
+      <p>Mission Ids:</p>
+      <ul *ngFor="let id of program?.mission_id;">
+        <li>{{id}}</li>
+      </ul>
+    </div>
+    <div class="launch-year info-section">
+      <div class="pointer">Launch Year:</div>&nbsp;
+      <div class="value">{{program?.launch_year}}</div>
+    </div>
+    <div class="successful-launch  info-section">
+      <div class="pointer">Successful Launch:</div>&nbsp;
+      <div class="value">{{program?.launch_success}}</div>
+    </div>
+    <div class="successful-landing info-section">
+      <div class="pointer">Successful Landing:</div>&nbsp;
+      <div class="value">{{ program?.launch_success  && !program?.launch_failure_details }}</div>
+    </div>
+  </div>
+</div>
